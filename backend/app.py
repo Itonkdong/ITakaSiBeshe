@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 import json
@@ -54,7 +54,6 @@ def getData():
         json.dump(data, db, indent=4)
         
 
-    return "Data saved successfully"
-
+    return jsonify(200)
 if __name__ == '__main__':
     app.run(debug=True)
