@@ -74,6 +74,19 @@ html{
     align-items: center;
 }
 
+.form-btn {
+    border-radius: 15px;
+    border: .5px solid black;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: .5s ease;
+}
+
+.form-btn:hover{
+    background: white;
+}
+
 .reservation-form .item{
     display: flex;
     margin-bottom: 1.5rem;
@@ -95,4 +108,36 @@ input{
 .reservation-form button{
     padding: 1rem 1.5rem;
 }
+
+.reservation-info{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.reservation-info.left-info{
+    margin-left: 2rem;
+}
+
+.reservation-info.right-info{
+    margin-right: 2rem;
+}
+
+.reservation-card{
+    border: 1px solid black;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .3s ease;
+    background: #f5f1f1;
+
+}
+
+.reservation-card:hover{
+    box-shadow: 5px 3px black;
+}
+
 
