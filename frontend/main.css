@@ -110,11 +110,11 @@ input{
 }
 
 .reservation-info{
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
+
 
 .reservation-info.left-info{
     margin-left: 2rem;
@@ -133,11 +133,19 @@ input{
     cursor: pointer;
     transition: .3s ease;
     background: #f5f1f1;
-
 }
+
 
 .reservation-card:hover{
     box-shadow: 5px 3px black;
+}
+
+.main-page-container > .item{
+
+}
+
+.right-info-info{
+
 }
 
 

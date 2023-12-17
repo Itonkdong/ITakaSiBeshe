@@ -18,7 +18,7 @@
 </nav>
 <div class="main-page-container">
 
-    <div class="reservation-info left-info">
+    <div class="reservation-info left-info item">
         <h1>Mali Masi: <span class="sm-counter"></span></h1>
         <div class="reservation-card" v-for="(reservartion1, index) in leftReservations">
             <div class="res-name">Name:{{reservartion1.name}}</div>
@@ -29,8 +29,7 @@
         </div>
 
     </div>
-
-    <div class="reservation-main">
+    <div class="reservation-main item">
         <form class="reservation-form">
 
             <div class="reservation item item-1">
@@ -68,11 +67,16 @@
                 <input type="email" name="email" v-model="reservationForm.email">
             </div>
 
+            <div class="reservation item item-7">
+                <label>Date:</label>
+                <input type="date" name="date" v-model="reservationForm.date">
+            </div>
+
             <button class="form-btn" @click.prevent="test"
             >Make Reservation</button>
         </form>
     </div>
-    <div class="reservation-info right-info">
+    <div class="reservation-info right-info item">
         <h1>Golemi Masi: <span class="bg-counter"></span></h1>
         <div class="reservation-card" v-for="(reservartion1, index) in rightReservations">
             <div class="res-name">Name:{{reservartion1.name}}</div>
