@@ -1,24 +1,47 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, request
+from flask_cors import CORS
+
 import json
-import os
 
 app = Flask(__name__)
-
-with open("static/data.json", "r") as jsonFile:
-    DATA = json.load(jsonFile)
-
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/')
 def getIndex():
     return "Hello World!"
 
+@app.route('/api/reserve', methods=['POST'])
+def getData():
+    data = request.get_json()
 
+    if data is None:
+        return "Bad Request: JSON data not provided", 400
 
-@app.route('/login')
-def fuck():
-    return "Login"
+    name = data.get("name")
+    surname = data.get("surname")
 
+    if name is None or surname is None:
+        return "Bad Request: Name and surname are required", 400
+    print(name)
+    print(surname)
 
+    jsonObject = {
+        "name": name,
+        "surname": surname
+        # Add other fields as needed
+    }
+    
+
+    with open('data.json','r') as file:
+        data = json.load(file)
+        data.append(jsonObject)
+            
+
+    with open('data.json', 'w') as db:
+        json.dump(data, db, indent=4)
+        
+
+    return "Data saved successfully"
 
 if __name__ == '__main__':
     app.run(debug=True)
