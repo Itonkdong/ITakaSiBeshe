@@ -45,12 +45,12 @@ def getData():
     }
     
 
-    with open('data.json','r') as file:
+    with open('ITakaSiBeshe/data.json','r') as file:
         data = json.load(file)
         data.append(jsonObject)
             
 
-    with open('data.json', 'w') as db:
+    with open('ITakaSiBeshe/data.json', 'w') as db:
         json.dump(data, db, indent=4)
         
 

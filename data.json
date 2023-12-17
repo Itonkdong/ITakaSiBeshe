@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Andrej",
+        "surname": "STomnar",
+        "numPeople": "",
+        "numTables": "",
+        "time": null,
+        "date": null,
+        "tel": "",
+        "email": ""
+    },
+    {
+        "name": "Viktor",
+        "surname": "Kost",
+        "numPeople": "",
+        "numTables": "",
+        "time": null,
+        "date": null,
+        "tel": "",
+        "email": ""
+    },
+    {
+        "name": "Viktor",
+        "surname": "Kost",
+        "numPeople": "",
+        "numTables": "",
+        "time": null,
+        "date": null,
+        "tel": "",
+        "email": ""
+    },
+    {
+        "name": "nikola",
+        "surname": "jogurto",
+        "numPeople": null,
+        "numTables": null,
+        "time": null,
+        "date": null,
+        "tel": null,
+        "email": null
+    }
+]
