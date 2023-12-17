@@ -19,6 +19,13 @@ def getData():
 
     name = data.get("name")
     surname = data.get("surname")
+    numPeople = data.get("numPeople")
+    numTables = data.get("numTables")
+    time = data.get("time")
+    date = data.get("date")
+    tel = data.get("tel")
+    email = data.get("email")
+    
 
     if name is None or surname is None:
         return "Bad Request: Name and surname are required", 400
@@ -27,8 +34,14 @@ def getData():
 
     jsonObject = {
         "name": name,
-        "surname": surname
-        # Add other fields as needed
+        "surname": surname,
+        "numPeople":numPeople,
+        "numTables":numTables,
+        "time" : time,
+        "date" : date,
+        "tel":tel,
+        "email":email
+
     }
     
 
