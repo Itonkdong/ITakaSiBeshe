@@ -8,5 +8,11 @@ def getIndex():
 
 
 
+@app.route('/login')
+def fuck():
+    return "Login"
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
