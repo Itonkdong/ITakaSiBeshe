@@ -1,6 +1,5 @@
 from flask import Flask, request
 from flask_cors import CORS
-
 import json
 
 app = Flask(__name__)
@@ -29,18 +28,18 @@ def getData():
 
     if name is None or surname is None:
         return "Bad Request: Name and surname are required", 400
-    print(name)
-    print(surname)
+    # print(name)
+    # print(surname)
 
     jsonObject = {
         "name": name,
         "surname": surname,
-        "numPeople":numPeople,
-        "numTables":numTables,
-        "time" : time,
-        "date" : date,
-        "tel":tel,
-        "email":email
+        "numPeople": numPeople,
+        "numTables": numTables,
+        "time": time,
+        "date": date,
+        "tel": tel,
+        "email": email
 
     }
     
