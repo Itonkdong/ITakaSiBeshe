@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body id="app">
 <nav class="main-nav">
     <h3>Kafana</h3>
@@ -16,15 +17,19 @@
     </div>
 </nav>
 <div class="main-page-container">
+
     <div class="reservation-info left-info">
+        <h1>Mali Masi: <span class="sm-counter"></span></h1>
         <div class="reservation-card">
-            <div class="res-name">Nikola Nikoloski</div>
-            <div class="res-mail">nikosla@nikoloski.com</div>
-            <div class="res-time">12:00H</div>
-            <div class="res-date">17.12.2023</div>
-            <div class="res-num-people">32 coveci</div>
+            <div class="res-name">Name: </div>
+            <div class="res-mail">Mail: </div>
+            <div class="res-time">Time: </div>
+            <div class="res-date">Date: </div>
+            <div class="res-num-people">Number of people: </div>
         </div>
+
     </div>
+
     <div class="reservation-main">
         <form class="reservation-form">
 
@@ -67,10 +72,11 @@
             >Make Reservation</button>
         </form>
     </div>
-    <div class="reservation-info right-info"></div>
+    <div class="reservation-info right-info">
+        <h1>Golemi Masi: <span class="bg-counter"></span></h1>
+    </div>
 
 </div>
-
 
 
 <script>
@@ -79,9 +85,15 @@
 
         },
         methods : {
-            submitForm(jsonObj)
+            seeFetched()
             {
-                fetch('http://127.0.0.1:5000/api/reserve', {
+              console.log(this.reservations);
+            },
+            submitForm(jsonObj, javaObj)
+            {
+                this.addReservationCard(javaObj)
+
+                /*fetch('http://127.0.0.1:5000/api/reserve', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -92,25 +104,25 @@
                     .then(data => {
                         // Handle the response from the backend
                         console.log (data);
+                        if(data === "200") this.addReservationCard(javaObj)
                     })
                     .catch(error => {
                         // Handle errors
                         console.error('Error submitting to backend:', error);
-                    });
+                    });*/
+            },
+            addReservationCard(reservationInfo)
+            {
+                console.log(reservationInfo);
             },
             test()
             {
-                let json = this.factory() ;
-                console.log(json)
+                let javaObject = this.factory() ;
+                console.log(javaObject)
 
-                let stringJson = JSON.stringify(json);
+                let stringJson = JSON.stringify(javaObject);
                 console.log(stringJson);
-
-
-                this.submitForm(stringJson)
-
-
-
+                this.submitForm(stringJson, javaObject)
             },
             factory()
             {
@@ -136,7 +148,19 @@
             }
 
         },
-
+        mounted()
+        {
+            // Fetch data from the local JSON file
+            fetch('/data.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Set the data in the component's state
+                    console.log(data);
+                    this.reservations = data;
+                    // this.seeFetched();
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        },
         data() {
             return {
                 name: "",
@@ -147,10 +171,10 @@
                 date:null,
                 tel:"",
                 email:"",
-                test1:"TEST",
+                reservations: [],
 
             };
-        }}
+        }},
     );
     app.mount("#app");
 </script>

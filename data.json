@@ -10,6 +10,15 @@
         "email": "stomnaro.pedero@finki.iraq"
     },
     {
+<<<<<<< HEAD
+        "name": "Viktor",
+        "surname": "Kost",
+        "numPeople": "",
+        "numTables": "",
+        "time": null,
+        "date": null,
+        "tel": "",
+=======
         "name": "andrej",
         "surname": "stomnaroski",
         "numPeople": 1,
@@ -17,6 +26,7 @@
         "time": "01:13",
         "date": "2023-12-13",
         "tel": "313131313131",
+>>>>>>> 46add6ed3a5591372284aed0052051381756b9a6
         "email": ""
     },
     {
