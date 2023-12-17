@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Index</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="main.css">
 </head>
 <body id="app">
@@ -71,26 +72,68 @@
 
 
 <script>
+
+    // import axios from "axios";
+
     let app =  Vue.createApp({
         computed : {
 
         },
         methods : {
-            submitForm()
+            submitForm(jsonObj)
             {
+                fetch('http://127.0.0.1:5000/api/reserve', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: jsonObj
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response from the backend
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        // Handle errors
+                        console.error('Error submitting to backend:', error);
+                    });
             },
             test()
             {
-                console.log(this.name);
-                console.log(this.surname);
-                console.log(this.numPeople);
-                console.log(this.numTables);
-                console.log(this.time);
-                console.log(this.date);
-                console.log(this.tel);
-                console.log(this.email);
+                let json = this.factory() ;
+                console.log(json)
 
-                let name ;
+                let stringJson = JSON.stringify(json);
+                console.log(stringJson);
+
+
+                this.submitForm(stringJson)
+
+
+
+            },
+            factory()
+            {
+                let name = this.name;
+                let surname = this.surname;
+                let numPeople = this.numPeople;
+                let numTables = this.numTables;
+                let time = this.time;
+                let date = this.date;
+                let tel = this.tel;
+                let email = this.email;
+                return {
+                    name,
+                    surname,
+                    numPeople,
+                    numTables,
+                    time,
+                    date,
+                    tel,
+                    email,
+                }
+
             }
 
         },
@@ -105,6 +148,7 @@
                 date:null,
                 tel:"",
                 email:"",
+                test1:"TEST",
 
             };
         }}
