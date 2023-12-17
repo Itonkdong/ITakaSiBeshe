@@ -58,16 +58,13 @@ def getData():
 
 
 
-    with open(r'/ITakaSiBeshe/rezervacii.json', 'r') as file:
-        DATA = json.load(file)
+    # with open(r'D:\User\Desktop\ITakaProba\ITakaSiBeshe\rezervacii.json', 'r') as file:
+    #     DATA = json.load(file)
 
-    if getTime(time, DATA=DATA):
-        print('Taman Time')
-    else:
-        return jsonify(400) # Nemojt to vreme
-
-
-
+    # if getTime(time, DATA="00:01"):
+    #     print('Taman Time')
+    # else:
+    #     return jsonify(400) # Nemojt to vreme
 
 
 
@@ -85,14 +82,14 @@ def getData():
     }
 
 
-    with open(r'/ITakaSiBeshe/rezervacii.json', 'r') as file:
+    with open(r'D:\User\Desktop\ITakaProba\ITakaSiBeshe\rezervacii.json', 'r') as file:
         data = json.load(file)
         data.append(jsonObject)
 
-    #DATA.append(jsonObject) ^^^^^^
+    # DATA.append(jsonObject)
             
 
-    with open(r'/ITakaSiBeshe/rezervacii.json', 'w') as db:
+    with open(r'D:\User\Desktop\ITakaProba\ITakaSiBeshe\rezervacii.json', 'w') as db:
         json.dump(data, db, indent=4)
         
 

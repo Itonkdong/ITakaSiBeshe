@@ -119,7 +119,7 @@
             {
                 this.addReservationCard(javaObj)
 
-                /*fetch('http://127.0.0.1:5000/api/reserve', {
+                fetch('http://127.0.0.1:5000/api/reserve', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -135,7 +135,7 @@
                     .catch(error => {
                         // Handle errors
                         console.error('Error submitting to backend:', error);
-                    });*/
+                    });
             },
             addReservationCard(reservationInfo)
             {
@@ -182,7 +182,7 @@
         mounted()
         {
             // Fetch data from the local JSON file
-            fetch('/data.json')
+            fetch('/rezervacii.json')
                 .then(response => response.json())
                 .then(data => {
                     // Set the data in the component's state
