@@ -20,12 +20,12 @@
 
     <div class="reservation-info left-info">
         <h1>Mali Masi: <span class="sm-counter"></span></h1>
-        <div class="reservation-card">
-            <div class="res-name">Name: </div>
-            <div class="res-mail">Mail: </div>
-            <div class="res-time">Time: </div>
-            <div class="res-date">Date: </div>
-            <div class="res-num-people">Number of people: </div>
+        <div class="reservation-card" v-for="(reservartion1, index) in leftReservations">
+            <div class="res-name">Name:{{reservartion1.name}}</div>
+            <div class="res-mail">Mail: {{reservartion1.email}}</div>
+            <div class="res-time">Time: {{reservartion1.time}}</div>
+            <div class="res-date">Date: {{reservartion1.date}}</div>
+            <div class="res-num-people">Number of people: {{reservartion1.numPeople}} </div>
         </div>
 
     </div>
@@ -35,37 +35,37 @@
 
             <div class="reservation item item-1">
                 <label>Name:</label>
-                <input type="text" name="name" v-model="name">
+                <input type="text" name="name" v-model="reservationForm.name">
             </div>
 
             <div class="reservation item item-2">
                 <label>Surname:</label>
-                <input type="text" name="surname" v-model="surname">
+                <input type="text" name="surname" v-model="reservationForm.surname">
             </div>
 
             <div class="reservation item item-3">
                 <label>Number People:</label>
-                <input type="number" name="numPeople" v-model="numPeople">
+                <input type="number" name="numPeople" v-model="reservationForm.numPeople">
             </div>
 
             <div class="reservation item item-4">
                 <label>Number Tables:</label>
-                <input type="text" name="numTables" v-model="numTables">
+                <input type="text" name="numTables" v-model="reservationForm.numTables">
             </div>
 
             <div class="reservation item item-5">
                 <label>Time:</label>
-                <input type="time" name="time" v-model="time">
+                <input type="time" name="time" v-model="reservationForm.time">
             </div>
 
             <div class="reservation item item-6">
                 <label>Tel:</label>
-                <input type="tel" name="telephone" v-model="tel">
+                <input type="tel" name="telephone" v-model="reservationForm.tel">
             </div>
 
             <div class="reservation item item-7">
                 <label>Email:</label>
-                <input type="email" name="email" v-model="email">
+                <input type="email" name="email" v-model="reservationForm.email">
             </div>
 
             <button class="form-btn" @click.prevent="test"
@@ -74,6 +74,13 @@
     </div>
     <div class="reservation-info right-info">
         <h1>Golemi Masi: <span class="bg-counter"></span></h1>
+        <div class="reservation-card" v-for="(reservartion1, index) in rightReservations">
+            <div class="res-name">Name:{{reservartion1.name}}</div>
+            <div class="res-mail">Mail: {{reservartion1.email}}</div>
+            <div class="res-time">Time: {{reservartion1.time}}</div>
+            <div class="res-date">Date: {{reservartion1.date}}</div>
+            <div class="res-num-people">Number of people: {{reservartion1.numPeople}} </div>
+        </div>
     </div>
 
 </div>
@@ -85,9 +92,28 @@
 
         },
         methods : {
-            seeFetched()
+            manageFetched(data)
             {
-              console.log(this.reservations);
+                if(data.length <= 3)
+                {
+                    this.leftReservations = data;
+                }
+                else
+                {
+                    for (const reservation of data)
+                    {
+                        if(this.leftReservations.length < 3)
+                        {
+                            this.leftReservations.push(reservation);
+                        }
+                        else
+                        {
+                            this.rightReservations.push(reservation);
+
+                        }
+
+                    }
+                }
             },
             submitForm(jsonObj, javaObj)
             {
@@ -113,7 +139,23 @@
             },
             addReservationCard(reservationInfo)
             {
-                console.log(reservationInfo);
+                console.log("Adding", reservationInfo)
+                if(this.leftReservations.length < 3)
+                {
+                    this.leftReservations.push(reservationInfo);
+                }
+                else
+                {
+                    this.rightReservations.push(reservationInfo);
+                }
+                this.resetFields();
+            },
+            resetFields()
+            {
+                for (const reservationFormKey in this.reservationForm)
+                {
+                    this.reservationForm[reservationFormKey] = "";
+                }
             },
             test()
             {
@@ -126,24 +168,13 @@
             },
             factory()
             {
-                let name = this.name;
-                let surname = this.surname;
-                let numPeople = this.numPeople;
-                let numTables = this.numTables;
-                let time = this.time;
-                let date = this.date;
-                let tel = this.tel;
-                let email = this.email;
-                return {
-                    name,
-                    surname,
-                    numPeople,
-                    numTables,
-                    time,
-                    date,
-                    tel,
-                    email,
+                const formDetails = {};
+
+                for (const reservationInfoKey in this.reservationForm)
+                {
+                    formDetails[reservationInfoKey] = this.reservationForm[reservationInfoKey];
                 }
+                return formDetails;
 
             }
 
@@ -156,22 +187,24 @@
                 .then(data => {
                     // Set the data in the component's state
                     console.log(data);
-                    this.reservations = data;
-                    // this.seeFetched();
+                    this.manageFetched(data);
                 })
                 .catch(error => console.error('Error fetching data:', error));
         },
         data() {
             return {
-                name: "",
-                surname:"",
-                numPeople:"",
-                numTables:"",
-                time:null,
-                date:null,
-                tel:"",
-                email:"",
-                reservations: [],
+                reservationForm: {
+                    name: "",
+                    surname:"",
+                    numPeople:"",
+                    numTables:"",
+                    time:null,
+                    date:null,
+                    tel:"",
+                    email:"",
+                },
+                leftReservations: [],
+                rightReservations: [],
 
             };
         }},
