@@ -73,7 +73,7 @@
 
 <script>
 
-    import axios from "axios";
+    // import axios from "axios";
 
     let app =  Vue.createApp({
         computed : {
@@ -82,15 +82,22 @@
         methods : {
             submitForm(jsonObj)
             {
-                axios.post('http://127.0.0.1:5000/api/reserve', jsonObj)
-                    .then(()=>{
-                        console.log("Succesfull");
-                        console.log(jsonObj);
-
+                fetch('http://127.0.0.1:5000/api/reserve', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: jsonObj
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response from the backend
+                        console.log(data);
                     })
-                    .catch((error)=>{
-                        console.log(error);
-                    })
+                    .catch(error => {
+                        // Handle errors
+                        console.error('Error submitting to backend:', error);
+                    });
             },
             test()
             {
