@@ -6,6 +6,66 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
+<nav class="main-nav">
+    <h3>Kafana</h3>
+    <div>
+        <button>Login</button>
+        <button>Register</button>
+    </div>
+</nav>
+<div class="main-page-container">
+    <div class="reservation-info left-info">
+        <div class="reservation-card">
+            <div class="res-name">Nikola Nikoloski</div>
+            <div class="res-mail">nikosla@nikoloski.com</div>
+            <div class="res-time">12:00H</div>
+            <div class="res-date">17.12.2023</div>
+            <div class="res-num-people">32 coveci</div>
+        </div>
+    </div>
+    <div class="reservation-main">
+        <form class="reservation-form">
+            <label>
+                Name:
+                <input type="text" name="name">
+            </label>
+            <label>
+                Surname:
+                <input type="text" name="surname">
+            </label>
+            <label>
+                Number People:
+                <input type="number" name="numPeople">
+            </label>
+            <label>
+                Number Tables:
+                <input type="text" name="numTables">
+            </label>
+            <label>
+                Time:
+                <input type="time" name="time">
+            </label>
+            <label>
+                Date:
+                <input type="date" name="date">
+            </label>
+            <label>
+                Tel:
+                <input type="tel" name="telephone">
+            </label>
+            <label>
+                Email:
+                <input type="email" name="email">
+            </label>
+            <button>Make Reservation</button>
+
+        </form>
+    </div>
+    <div class="reservation-info right-info">
+</div>
+
+</div>
+
 
 
 <script>
