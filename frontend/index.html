@@ -81,9 +81,14 @@
 
         },
         methods : {
-            submitForm()
+            submitForm(jsonObj)
             {
-                axios.post('')
+                axios.post('http://127.0.0.1:5000/api/reserve', jsonObj)
+                    .then(()=>{
+                        console.log("Succesfull");
+                        console.log(jsonObj);
+
+                    })
             },
             test()
             {
@@ -94,7 +99,7 @@
                 console.log(stringJson);
 
 
-                // this.submitForm(stringJson)
+                this.submitForm(stringJson)
 
 
 
