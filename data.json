@@ -1,152 +1,22 @@
 [
     {
         "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
+        "surname": "Stomnaroski",
+        "numPeople": "2",
+        "numTables": "1",
         "time": null,
         "date": null,
-        "tel": "",
-        "email": ""
+        "tel": "069696969",
+        "email": "stomnaro.pedero@finki.iraq"
     },
     {
-        "name": "Viktor",
-        "surname": "Kost",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Viktor",
-        "surname": "Kost",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "nikola",
-        "surname": "jogurto",
-        "numPeople": null,
-        "numTables": null,
-        "time": null,
-        "date": null,
-        "tel": null,
-        "email": null
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
+        "name": "andrej",
+        "surname": "stomnaroski",
         "numPeople": 1,
         "numTables": "1",
-        "time": "23:50",
-        "date": "2023-11-28",
-        "tel": "121212121",
-        "email": "stomnaroskiandrej21@gmail.com"
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
-        "email": ""
-    },
-    {
-        "name": "Andrej",
-        "surname": "STomnar",
-        "numPeople": "",
-        "numTables": "",
-        "time": null,
-        "date": null,
-        "tel": "",
+        "time": "01:13",
+        "date": "2023-12-13",
+        "tel": "313131313131",
         "email": ""
     }
 ]
