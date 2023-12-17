@@ -5,7 +5,7 @@
     <title>Index</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body>
+<body id="app">
 <nav class="main-nav">
     <h3>Kafana</h3>
     <div>
@@ -26,38 +26,39 @@
     <div class="reservation-main">
         <form class="reservation-form">
             <label>
-                Name:
-                <input type="text" name="name">
+                {{name}}
+                <input type="text" name="name" v-model="name">
             </label>
             <label>
                 Surname:
-                <input type="text" name="surname">
+                <input type="text" name="surname" v-model="surname">
             </label>
             <label>
                 Number People:
-                <input type="number" name="numPeople">
+                <input type="number" name="numPeople" v-model="numPeople">
             </label>
             <label>
                 Number Tables:
-                <input type="text" name="numTables">
+                <input type="text" name="numTables" v-model="numTables">
             </label>
             <label>
                 Time:
-                <input type="time" name="time">
+                <input type="time" name="time" v-model="time">
             </label>
             <label>
                 Date:
-                <input type="date" name="date">
+                <input type="date" name="date" v-model="date">
             </label>
             <label>
                 Tel:
-                <input type="tel" name="telephone">
+                <input type="tel" name="telephone" v-model="tel">
             </label>
             <label>
                 Email:
-                <input type="email" name="email">
+                <input type="email" name="email" v-model="email">
             </label>
-            <button>Make Reservation</button>
+            <button @click.prevent="test"
+            >Make Reservation</button>
 
         </form>
     </div>
@@ -74,11 +75,35 @@
 
         },
         methods : {
+            submitForm()
+            {
+            },
+            test()
+            {
+                console.log(this.name);
+                console.log(this.surname);
+                console.log(this.numPeople);
+                console.log(this.numTables);
+                console.log(this.time);
+                console.log(this.date);
+                console.log(this.tel);
+                console.log(this.email);
+
+                let name ;
+            }
 
         },
 
         data() {
             return {
+                name: "",
+                surname:"",
+                numPeople:"",
+                numTables:"",
+                time:null,
+                date:null,
+                tel:"",
+                email:"",
 
             };
         }}
